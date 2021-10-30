@@ -13,7 +13,7 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'; 
 
 const useStyles = makeStyles((_theme) => ({
   container: {
@@ -128,8 +128,8 @@ const App = () => {
             </Button>
           </div>
         </Grid>
-      </Grid>
-    </Fragment>
+      </Grid> 
+      </Fragment>
   );
 };
 
