@@ -12,9 +12,56 @@ import axios from 'axios';
 
 import RatingControl from '../RatingControl';
 import '../App.css';
-import schema from '../schema.json';
-import uischema from '../uischema.json';
+// import schema from '../schema.json';
+// import uischema from '../uischema.json';
 import ratingControlTester from '../ratingControlTester';
+
+const schema = {
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "minLength": 5
+    },
+    "password": {
+      "minLength": 5,
+      "type": "string"
+    },
+    "Address": {
+      "minLength": 10,
+      "type":"string"
+    }
+  },
+  "required": ["name", "password", "email"]
+};
+
+const uischema = {
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/name"
+    },
+
+    {
+      "type": "Control",
+      "scope": "#/properties/email"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/password"
+    }
+    // ,
+    // {
+    //   "type": "Control",
+    //   "scope": "#/properties/Address"
+    // }
+  ]
+};
 
 const useStyles = makeStyles((_theme) => ({
   container: {
@@ -72,7 +119,9 @@ const CreateForm = () => {
       email: jsonformsData.email,
       password: jsonformsData.password,
     };   
-    axios.post('/api/users', user).then((res) => console.log(res.data));
+    // axios.post('/api/users', user).then((res) => console.log(res.data));
+    console.log(JSON.parse(JSON.stringify(jsonformsData)));
+    console.log(user);
   }; 
 
   return (
